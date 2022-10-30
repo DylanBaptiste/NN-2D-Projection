@@ -3,6 +3,7 @@ import os
 from glob import glob
 import json
 
+BASE_PATH = "https://dylanbaptiste.github.io/NN-2D-Projection"
 TITLE = "NN-2D-Projection"
 DESC = "Visualisation de données 2D avec des réseaux de neurones"
 
@@ -29,7 +30,7 @@ for html, config, run in zip(HTMLS, CONFIGS, RUN_NAMES):
 		pass
 	optimizer = run_data.get('OPTIMIZER', {})
 	optimizer = optimizer.get('name', 'None')
-	README += f"""| [{run}]({html}) | {run_data.get('description', 'Aucune')} | {run_data.get('LR', 'Aucune')} | {run_data.get('EPOCH', 'Aucune')} | {run_data.get('BATCH_SIZE', 'Aucune')} | {optimizer} |\n"""
+	README += f"""| [{run}]({BASE_PATH}/Resultats/{run}.html) | {run_data.get('description', 'Aucune')} | {run_data.get('LR', 'Aucune')} | {run_data.get('EPOCH', 'Aucune')} | {run_data.get('BATCH_SIZE', 'Aucune')} | {optimizer} |\n"""
 
 with open("README.md", 'w+', encoding='utf-8') as f:
 	f.write(README)
